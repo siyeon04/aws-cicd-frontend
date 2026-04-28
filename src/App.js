@@ -6,7 +6,7 @@ function App() {
   const [file, setFile] = useState(null);
   const [uploadedFileName, setUploadedFileName] = useState(null);
 
-  const albAddress = "http://lsylab-670756811.us-east-2.elb.amazonaws.com";
+  const albAddress = process.env.REACT_APP_API_BASE_URL || "http://lsylab-670756811.us-east-2.elb.amazonaws.com";
 
   const callBackend = async () => {
     setMessage('호출 중...');
