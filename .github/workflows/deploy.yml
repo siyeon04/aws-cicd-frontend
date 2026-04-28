@@ -4,6 +4,7 @@ on:
     branches: [ "main" ]
 env:
   AWS_REGION: us-east-2
+  S3_BUCKET_NAME: sk3th-lsy-s3-bucket
 jobs:
   deploy:
     name: Build and Deploy to S3
@@ -29,4 +30,4 @@ jobs:
         aws-region: ${{ env.AWS_REGION }}
     - name: Deploy to Amazon S3
       run: |
-        aws s3 sync build/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
+        aws s3 sync build/ s3://${{ env.S3_BUCKET_NAME }} --delete
